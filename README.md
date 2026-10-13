@@ -1,8 +1,14 @@
 # Enigma's Realistic Smoke Rework
 
-A Valheim mod that makes smoke behave like smoke. It rises, finds its way out of rooms, pools under ceilings, bends in the wind, and reacts to cold and rain. Weak fires puff small and slow. Strong fires pour out big, fast smoke.
+A Valheim mod that makes smoke behave like smoke. It rises, finds its way out of rooms, pools under ceilings, bends in the wind, and is drawn up chimneys and flues. It also reacts to cold and rain. Weak fires puff small and slow. Strong fires pour out big, fast smoke.
 
-![Enigma's Realistic Smoke Rework](images/icon.png)
+![Smoke from a campfire bending in the wind at dusk](https://raw.githubusercontent.com/RELinkem/Enigmas-Realistic-Smoke-Rework/main/images/hero.png)
+
+## Vanilla vs Enigma's Realistic Smoke Rework
+
+Same campfire, same spot, same wind. Vanilla smoke climbs in a loose column. With the mod it bends and drifts with the wind.
+
+![Vanilla smoke on the left, Enigma's Realistic Smoke Rework on the right](https://raw.githubusercontent.com/RELinkem/Enigmas-Realistic-Smoke-Rework/main/images/before-after.gif)
 
 ## Download
 
