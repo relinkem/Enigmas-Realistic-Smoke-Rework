@@ -14,7 +14,7 @@ Same campfire, same spot, same wind. Vanilla smoke climbs in a loose column. Wit
 
 Install from Thunderstore with r2modman or the Thunderstore app:
 
-THUNDERSTORE_LINK_PLACEHOLDER
+[https://thunderstore.io/c/valheim/p/Enigma_Prime/Enigmas_Realistic_Smoke_Rework/](https://thunderstore.io/c/valheim/p/Enigma_Prime/Enigmas_Realistic_Smoke_Rework/)
 
 ## Settings
 
@@ -28,7 +28,7 @@ Open an issue on this page. Please include your BepInEx log (LogOutput.log) and 
 
 If you like the mod, you can buy me a coffee:
 
-KOFI_LINK_PLACEHOLDER
+[Buy me a coffee on Ko-fi](https://ko-fi.com/enigmaprime)
 
 ## How this mod was made
 
