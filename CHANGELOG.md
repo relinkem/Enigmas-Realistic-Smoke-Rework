@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.5.0
+
+*Smoke no longer gets stuck in small holes, and it now billows out from the fire.*
+
+- New smoke shape: a new puff starts small and widens quickly, then keeps growing more slowly as it ages. Before, puffs started at full size. Weaker fires start closer to full size, so a last-log fire does not nearly vanish. This is look only.
+- Two new settings, **Emerge start size** (default 0.35) and **Emerge time** (default 1.5 seconds). Set the start size to 1 to turn it off.
+- **Smoke expansion** now grows fastest at first and slows down as the smoke ages, instead of speeding up in the middle.
+- A puff that is stuck in a flue or other cramped space now gets a little smaller with each check, hitbox included, until it slips through. Once it is out, it grows back to full size over a few seconds.
+- **Flue puff size** now sets the smallest size a puff shrinks to. Its default is 0.5 (was 0.7). If you already had a saved value, your value is kept. Set it to 1 to turn the shrinking off.
+- Removed the two Debug settings (**Debug logging** and **Force weather**). They were only for testing.
+
 ## 0.4.0
 
 *Flames have joined the smoke.*
