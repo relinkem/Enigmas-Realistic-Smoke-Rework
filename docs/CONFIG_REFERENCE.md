@@ -1,6 +1,6 @@
 # Enigma's Realistic Smoke Rework: settings reference
 
-Version 0.4.0, 52 settings.
+Version 0.5.0, 54 settings.
 
 All settings are in `BepInEx/config/EnigmaPrime.RealisticSmokeRework.cfg` and can also be changed live in game with Configuration Manager (F1). Settings marked *advanced* only show in F1 when "Show advanced settings" is ticked.
 
@@ -78,9 +78,11 @@ All settings are in `BepInEx/config/EnigmaPrime.RealisticSmokeRework.cfg` and ca
 
 | Setting | Default | Range | What it does |
 |---|---|---|---|
-| Smoke expansion | 1.6 | 1 to 4 | How many times bigger the smoke looks by the end of its life. Growth starts after a quarter of its life, and after leaving any flue. 1 = no growth. |
+| Smoke expansion | 1.6 | 1 to 4 | How many times bigger the smoke looks by the end of its life. Growth starts after a quarter of its life, and after leaving any flue. It grows fastest at first and slows down as the smoke ages. 1 = no growth. |
 | Puff size variance | 0.2 | 0 to 0.6 | Each new puff looks bigger or smaller by up to this fraction (0.2 = plus or minus 20%). 0 = all the same. |
-| Flue puff size | 0.7 | 0.2 to 1 | How big puffs look while inside a flue or other cramped space, as a fraction of normal. They ease to full size a few seconds after getting out. 1 = no change. |
+| Flue puff size | 0.5 | 0.2 to 1 | Smallest size a puff shrinks to (look and hitbox, as a fraction of normal) when it is stuck in a flue or other cramped space. It gets a little smaller each check until it escapes, then grows back to full size over a few seconds. 1 = no shrinking. |
+| Emerge start size | 0.35 | 0.1 to 1 | How big a new puff looks the moment it leaves the fire, as a fraction of normal. It widens to full size over Emerge time, so smoke starts narrow and fans out as it rises. Weaker fires start closer to full size. Visual only. 1 = no emerging. |
+| Emerge time | 1.5 | 0.2 to 5 | Seconds a new puff takes to widen from its start size to full size. It grows fastest at first, then eases off. Visual only. |
 
 ## 7 Smoke wind and weather
 
@@ -100,10 +102,3 @@ All settings are in `BepInEx/config/EnigmaPrime.RealisticSmokeRework.cfg` and ca
 | Max amount | 200 | 20 to 1000 | Maximum number of smoke objects in the world at once (the game uses 100). When it is reached the oldest smoke fades early. Raise it with Spawn rate multiplier, Lifetime multiplier or Low fuel puff rate. |
 | Detailed range | 40 | 0 to 64 | Smoke farther than this many meters from you skips the wall and path checks and just rises and drifts in the wind. This is the biggest saver in bases with many fires. 0 = detailed checks everywhere. |
 | Recheck interval *(advanced)* | 1.5 | 0.5 to 5 | Seconds between environment checks for each nearby puff. Higher is cheaper but makes smoke slower to react to walls and openings. |
-
-## 9 Debug
-
-| Setting | Default | Range | What it does |
-|---|---|---|---|
-| Debug logging *(advanced)* | false | - | Writes extra lines to the BepInEx log: fire detection, flame and blowout changes, and a sample of what smoke decided. Leave off unless asked. |
-| Force weather *(advanced)* | Off | Off / Cold / Freezing / Wet / Cold and wet / Freezing and wet | For testing only. Makes the mod behave as if this weather were active, whatever the game says. |
