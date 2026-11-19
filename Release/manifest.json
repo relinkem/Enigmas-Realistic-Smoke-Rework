@@ -1,0 +1,9 @@
+{
+  "name": "Enigmas_Realistic_Smoke_Rework",
+  "version_number": "0.5.1",
+  "website_url": "https://github.com/RELinkem/Enigmas-Realistic-Smoke-Rework",
+  "description": "Smoke that rises, finds its way out of rooms and reacts to wind and weather, plus flames that follow their fuel and give in to wind and rain. Smoke needs a fire, after all. One switch turns the flames off.",
+  "dependencies": [
+    "denikson-BepInExPack_Valheim-5.4.2351"
+  ]
+}

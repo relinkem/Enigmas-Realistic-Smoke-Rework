@@ -1,8 +1,12 @@
 # Enigma's Realistic Smoke Rework: settings reference
 
-Version 0.5.0, 54 settings.
+Version 0.5.1, 50 settings.
 
 All settings are in `BepInEx/config/EnigmaPrime.RealisticSmokeRework.cfg` and can also be changed live in game with Configuration Manager (F1). Settings marked *advanced* only show in F1 when "Show advanced settings" is ticked.
+
+## Updating from an older version
+
+Settings that were merged or removed are converted when the game starts, and a copy of your old config is saved next to it as `EnigmaPrime.RealisticSmokeRework.cfg.pre-0.5.1.bak`.
 
 ## Notes for server owners
 
@@ -40,12 +44,10 @@ All settings are in `BepInEx/config/EnigmaPrime.RealisticSmokeRework.cfg` and ca
 | Low fuel flame height | 0.4 | 0.1 to 1 | How small flames get on a nearly empty fire, as a fraction of the game's. Visual only. |
 | Full flame fuel level | 1 | 0.05 to 1 | Fuel level (0 to 1, as a fraction of the fire's maximum) where flames are at full height. 1 = only a completely full fire is at full height, and flames shrink steadily from there. Visual only. |
 | Low flame fuel level | 0.2 | 0 to 0.9 | Fuel level where flames and light reach their lowest. Below it they stay there until the fuel runs out and the game puts the fire out. 0.2 = two logs on a campfire. Visual only. |
-| Flame height curve | 1 | 0.3 to 3 | Shape of the shrink between the two fuel levels above. 1 = steady, the same amount per log. Higher keeps flames bigger for longer and drops them faster near the end. Lower does the opposite. Visual only. |
 | Full fuel light | 1 | 1 to 2 | How bright the light from a full fire is, as a multiple of the game's. 1 = same as the game. Visual only. |
 | Low fuel light | 0.45 | 0.05 to 1 | How bright the light is on a nearly empty fire, as a fraction of the game's. Light dims smoothly with the flames down to this. Visual only. |
 | Refuel flare | 0.4 | 0 to 1 | When logs are added, flames and light briefly get this much bigger and brighter on top of what the fuel level gives (0.4 = 40% more), then settle back. 0 = off. Visual only. |
-| Refuel flare hold | 2.5 | 0 to 10 | Seconds the refuel flare stays at full strength. Visual only. |
-| Refuel flare fade | 1.5 | 0.1 to 5 | Seconds the refuel flare takes to fade back to normal after the hold. Visual only. |
+| Refuel flare time | 4 | 0.5 to 15 | Seconds the refuel flare lasts: about five eighths of it at full strength, then it fades back to normal. Visual only. |
 | Low fuel flicker | 3 | 1 to 5 | How unsteady the light is on a nearly empty fire, as a multiple of the game's flicker. 1 = same as the game. It builds up as the fuel drops, and also while a fire is blown down or soaked by rain. Does nothing if Reduce Flashing Lights is on in the game's settings. Visual only. |
 | Fuel puff particles | false | - | The extra puff of particles the game shows when you add fuel. Off = no puff (any sound is kept). On = the game's normal puff. Applies to fires that load after the change, so reload the area or restart. Visual only. |
 
@@ -55,8 +57,7 @@ All settings are in `BepInEx/config/EnigmaPrime.RealisticSmokeRework.cfg` and ca
 |---|---|---|---|
 | Enhanced wind blowout | Visual only | Off / Visual only | How exposed fires react to strong wind. Low fuel gives in sooner, shelter protects. Off = game default. On (Visual only) = flames shrink or go dark but the fire stays lit, and nothing changes for other players or the server. Sealed lanterns ignore wind. |
 | Low fuel wind blowout | 0.35 | 0.1 to 0.8 | Wind strength (0 to 1) that blows out an exposed fire at its Low flame fuel level or less. A full fire holds until the game's own 0.8. Fires in between follow the same curve as their flame height. |
-| Wind flame shrink | true | - | Flames of an exposed fire shrink steadily as the wind rises, before any blowout. Off = flames ignore wind until the blowout. Sheltered fires are never affected. Visual only. |
-| Wind flame shrink amount | 0.6 | 0 to 1 | How far wind shrinks exposed flames before the blowout. 0 = not at all, 1 = all the way down to the blown-down size just before it. Visual only. |
+| Wind flame shrink amount | 0.6 | 0 to 1 | How far wind shrinks exposed flames before the blowout. 0 = flames ignore wind until the blowout, 1 = all the way down to the blown-down size just before it. Visual only. |
 | Wind flame start | 0.2 | 0 to 0.7 | Wind strength (0 to 1) where exposed flames start to shrink. Fires with less fuel reach their blowout wind sooner, so they shrink faster. Visual only. |
 | Rain flame shrink | true | - | Exposed fires dwindle in rain until they look out, with thin smoke wisps. Cover brings them back. Sheltered fires and sealed lanterns are unaffected. Visual only: the fire still warms and cooks. |
 | Rain dwindle time | 180 | 20 to 1200 | Seconds of steady rain it takes an exposed full fire to dwindle until it looks out. Wind and low fuel make it faster, so a weak fire in a storm goes much sooner. 180 = three minutes. Visual only. |
@@ -73,6 +74,8 @@ All settings are in `BepInEx/config/EnigmaPrime.RealisticSmokeRework.cfg` and ca
 | Rise speed | 1.5 | 0 to 10 | Starting upward speed of fresh smoke in meters per second. It still slows as the smoke ages. The game uses 1. |
 | Rise speed variance | 0.2 | 0 to 0.5 | Each new puff rises this fraction faster or slower (0.2 = plus or minus 20%), so some smoke overtakes other smoke. 0 = all the same. |
 | Chimney pull | 0.5 | 0 to 5 | Extra upward speed (meters per second) for smoke inside narrow spaces like flues, so it is drawn out of the tube. A little stronger in wind. 0 = off. |
+| Updraft strength | 0.5 | 0 to 5 | Extra upward speed (meters per second) for smoke under a roof or ceiling that has a way out: a smoke hole or chimney top above it, or an opening nearby. The smoke is drawn up and out instead of lingering. Smoke with no way out is not affected. 0 = off (also turns off the wind cut below). |
+| Updraft wind cut | 0.9 | 0 to 1 | How much of the wind is removed from smoke that is in an updraft (see Updraft strength). 0.9 = it feels only a tenth of the wind until it is out. 0 = the wind pushes it as usual. Smoke with no way out keeps its usual weak draft drift. |
 
 ## 6 Smoke visuals
 
@@ -91,8 +94,7 @@ All settings are in `BepInEx/config/EnigmaPrime.RealisticSmokeRework.cfg` and ca
 | Wind drift speed | 2.5 | 0 to 5 | Sideways speed (meters per second) of cooled smoke in full wind. Higher bends the smoke more. 0 = wind has no effect (also on the main menu). |
 | Early wind effect *(advanced)* | 0.5 | 0 to 1 | How much of the wind fresh, hot smoke feels (0 to 1). Higher makes the smoke bend sooner instead of rising as a straight column. |
 | Wind turbulence | 0.3 | 0 to 1 | Gusts and swirls: smoke wavers around the wind direction and strength instead of following it smoothly. 0 = off, 1 = strong. |
-| Freezing cap height | 20 | 0 to 200 | In freezing weather smoke stops rising about this many meters above its source and spreads out sideways. 0 = no cap. |
-| Cold cap height | 30 | 0 to 200 | Same as the freezing cap, for cold weather. 0 = no cap. |
+| Cold cap height | 30 | 0 to 200 | In cold weather smoke stops rising about this many meters above its source and spreads out sideways. In freezing weather the cap is two thirds of this. 0 = no cap. |
 | Rain decay boost | 0.25 | 0 to 2 | While it is wet, smoke fades this much faster (0.25 = 25% faster). 0 = rain has no effect. |
 
 ## 8 Performance
